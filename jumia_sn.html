@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/jumia_sn.css">
+    <title>jum_sn</title>
+</head>
+<body>
+    <div id="cont">
+    <div id="sn">
+    <canvas id="graph_sn" width="300" height="150"></canvas>  
+</div>  
+<div id="maroc">
+    <canvas id="graph_maroc" width="300" height="150"></canvas>  
+</div>  
+</div>
+<div id="ci">
+    <canvas id="graph_ci" width="300" height="150"></canvas>  
+</div>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <script>
+    const sngraphique = document.getElementById("graph_sn").getContext("2d")
+       
+        
+    let myChart = new Chart(sngraphique, {
+    type: "bar",
+    data: {
+        labels: [{% for el in x_values %} 
+        "{{el}}",
+        {% endfor %}],
+        datasets: [
+            {
+                label: "Prix des aricles au Sénégal, en CFA",
+                data: [{%for el in y_values %}
+                {{el}},
+                {% endfor %}] ,
+                backgroundColor : "lightgreen"
+                
+
+                
+            }
+        ]
+        }})
+      
+    </script>
+    <script>
+        const marocgraphique = document.getElementById("graph_maroc").getContext("2d")
+   let mysecondChart = new Chart(marocgraphique, {
+   type: "bar",
+   data: {
+       labels: [{% for i in x_x_values %} 
+       "{{i}}",
+       {% endfor %}],
+       datasets: [
+           {
+               label: "Prix des aricles au Maroc, en CFA",
+               data: [{%for i in y_y_values %}
+               {{i}},
+               {% endfor %}] ,
+               backgroundColor : "lightblue"
+               
+
+               
+           }
+       ]
+       }})
+    </script>
+    <script>
+        const cigraphique = document.getElementById("graph_ci").getContext("2d")
+       
+        
+       let mythirdChart = new Chart(cigraphique, {
+   type: "bar",
+   data: {
+       labels: [{% for j in x_x_x_values %} 
+       "{{j}}",
+       {% endfor %}],
+       datasets: [
+           {
+               label: "Prix des aricles en Cote d'Ivoire, en CFA",
+               data: [{%for j in y_y_y_values %}
+               {{j}},
+               {% endfor %}] ,
+               backgroundColor : "red"
+               
+
+               
+           }
+       ]
+       }})
+
+    </script>
+    
+</body>
+</html>

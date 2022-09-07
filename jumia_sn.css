@@ -1,0 +1,22 @@
+#cont{
+    position: relative;
+    top: 5em;
+    right: 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#sn{
+    position: relative;
+    width: 50%;
+}
+#maroc{
+    position: relative;
+    width: 50%;
+}
+#ci{
+    position: relative;
+    
+    top: 12em;
+    width: 50%;
+}
